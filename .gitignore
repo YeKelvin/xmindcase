@@ -1,0 +1,18 @@
+# python generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# macos
+.DS_Store
+
+# venv
+.venv
+
+# project
+.env
+*.lock
+outputs

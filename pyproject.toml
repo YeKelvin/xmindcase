@@ -1,0 +1,77 @@
+[project]
+name = "xmindcase"
+version = "0.1.0"
+description = "XMind测试用例转换工具包"
+dependencies = [
+    "rich",
+    "typer",
+    "openpyxl",
+    "xmindparser",
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pip",
+    "ruff",
+    "pre-commit"
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/xmindcase"]
+
+[tool.rye.scripts]
+excel = "python src/xmindcase/main.py"
+
+[[tool.rye.sources]]
+name = "default"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+
+[tool.ruff]
+line-length = 120
+src = ["src"]
+select = [
+    "F",    # pyflakes
+    "UP",   # pyupgrade
+    "E",    # pycodestyle-error
+    "W",    # pycodestyle-warning
+    "D",    # pydocstyle
+    "I",    # isort
+]
+ignore = [
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D107",
+    "D415"
+]
+exclude = [
+    "__pycache__",
+    ".venv",
+    ".vscode"
+]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.isort]
+force-single-line = true
+lines-after-imports = 2
+lines-between-types = 1
+
+[tool.ruff.format]
+line-ending = "lf"
+quote-style = "single"
+skip-magic-trailing-comma = true
