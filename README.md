@@ -32,13 +32,15 @@ pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple
 ## 命令行使用说明
 
 ```bash
-xmindcase excel '文件路径' [--sheet 'sheet名称'] [--output '输出路径'] [--debug] [--help]
+xmindcase2excel '文件路径' [--sheet 'sheet名称'] [--output '输出路径'] [--debug] [--help]
 
-e.g.: xmindcase excel '/xxx/testcase.xmind'
+e.g.: xmindcase2excel '/xxx/testcase.xmind'
 ```
 
 ## 代码内使用说明
 
 ```python
-# 入口在 src/xmindcase/main.py 文件的 xmind_to_excel 函数
+from xmindcase import xmind_to_excel
+
+xmind_to_excel('testcase.xmind')
 ```

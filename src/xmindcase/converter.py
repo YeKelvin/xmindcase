@@ -1,12 +1,10 @@
 #!/usr/bin python3
-# @File    : main.py
+# @File    : converter.py
 # @Time    : 2024-09-14 16:40:37
 # @Author  : Kelvin.Ye
 import os
-import sys
 
 import openpyxl
-import typer
 
 from rich import print
 
@@ -17,10 +15,6 @@ from xmindcase.parser import validate_nodes
 from xmindcase.writer import add_dashboard_to_excel
 from xmindcase.writer import copy_excel
 from xmindcase.writer import write_to_excel
-
-
-# 添加项目路径到 system-path
-sys.path.append(os.path.dirname(sys.path[0]))
 
 
 def xmind_to_excel(xmind_file_path: str, xmind_sheet_name: str|None=None, excel_output: str|None=None, debug=False):
@@ -90,13 +84,3 @@ def xmind_to_excel(xmind_file_path: str, xmind_sheet_name: str|None=None, excel_
     wb.close()
     print('\n写入 excel 完成\n')
     print(f'测试用例输出路径: {output_path}\n')
-
-
-def main(file: str, sheet: str|None = None, output: str|None = None, debug: bool = False):
-    if not file:
-        raise typer.BadParameter('请输入正确的 xmind 文件路径')
-    xmind_to_excel(file, sheet, output, debug)
-
-
-if __name__ == '__main__':
-    typer.run(main)

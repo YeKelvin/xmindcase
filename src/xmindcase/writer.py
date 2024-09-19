@@ -72,22 +72,22 @@ def write_to_excel(wb: openpyxl.Workbook, excel_sheet: str, testcases: list):
         print(f'LineNo.{rownum} Testcas: {case}')
         # 模块
         sheet[f'B{rownum}'].value = case['module']
-        sheet[f'B{rownum}'].alignment = Alignment(vertical='center')
-        # 目录
+        sheet[f'B{rownum}'].alignment = Alignment(vertical='center', wrapText=True)
+        # 路径
         sheet[f'C{rownum}'].value = case['path']
-        sheet[f'C{rownum}'].alignment = Alignment(vertical='center')
+        sheet[f'C{rownum}'].alignment = Alignment(vertical='center', wrapText=True)
         # 分类
         sheet[f'D{rownum}'].value = case['cate']
-        sheet[f'D{rownum}'].alignment = Alignment(vertical='center')
+        sheet[f'D{rownum}'].alignment = Alignment(vertical='center', wrapText=True)
         # 用例名称
         sheet[f'E{rownum}'].value = case['title']
         sheet[f'E{rownum}'].alignment = Alignment(vertical='center', wrapText=True)
         # 前置条件
         sheet[f'F{rownum}'].value = case['pre']
-        sheet[f'F{rownum}'].alignment = Alignment(vertical='center')
+        sheet[f'F{rownum}'].alignment = Alignment(vertical='center', wrapText=True)
         # 测试数据
         sheet[f'G{rownum}'].value = case['data']
-        sheet[f'G{rownum}'].alignment = Alignment(vertical='center')
+        sheet[f'G{rownum}'].alignment = Alignment(vertical='center', wrapText=True)
         # 用例步骤
         sheet[f'H{rownum}'].value = case['step']
         sheet[f'H{rownum}'].alignment = Alignment(vertical='center', wrapText=True)

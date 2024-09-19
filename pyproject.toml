@@ -12,7 +12,7 @@ readme = "README.md"
 requires-python = ">= 3.12"
 
 [project.scripts]
-excel = "xmindcase.main"
+xmindcase2excel = "xmindcase.cli:run"
 
 [build-system]
 requires = ["hatchling"]
@@ -31,9 +31,6 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/xmindcase"]
-
-[tool.rye.scripts]
-excel = "python src/xmindcase/main.py"
 
 [[tool.rye.sources]]
 name = "default"
