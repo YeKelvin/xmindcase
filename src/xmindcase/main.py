@@ -23,10 +23,10 @@ from xmindcase.writer import write_to_excel
 sys.path.append(os.path.dirname(sys.path[0]))
 
 
-def xmind_to_excel(xmind_file_path: str, xmind_sheet_name: str|None=None, debug=False):
+def xmind_to_excel(xmind_file_path: str, xmind_sheet_name: str|None=None, excel_output: str|None=None, debug=False):
     """XMind 转 Excel"""
     # 获取 xmind 文件名
-    file_name = os.path.split(xmind_file_path)[1]
+    dir_path, file_name = os.path.split(xmind_file_path)
     xmind_name, file_ext = os.path.splitext(file_name)
     # 解析 XMind
     print('加载 xmind 文件')
@@ -72,7 +72,9 @@ def xmind_to_excel(xmind_file_path: str, xmind_sheet_name: str|None=None, debug=
     # XMindCase 解析完成
     print(f'xmindcase 解析完成，共 {sum([len(suite['cases']) for suite in suites])} 条用例\n')
     # 复制测试用例模板文件
-    output_path = copy_excel(template_excel_path, target_name=f'{xmind_name}.xlsx')
+    if not excel_output:
+        excel_output = dir_path
+    output_path = copy_excel(template_excel_path, target_dir=excel_output, target_name=f'{xmind_name}.xlsx')
     print('写入 excel 开始\n')
     # 打开 excel
     wb = openpyxl.load_workbook(output_path)
@@ -90,10 +92,10 @@ def xmind_to_excel(xmind_file_path: str, xmind_sheet_name: str|None=None, debug=
     print(f'测试用例输出路径: {output_path}\n')
 
 
-def main(file: str, sheet: str|None = None, debug: bool = False):
+def main(file: str, sheet: str|None = None, output: str|None = None, debug: bool = False):
     if not file:
         raise typer.BadParameter('请输入正确的 xmind 文件路径')
-    xmind_to_excel(file, sheet, debug)
+    xmind_to_excel(file, sheet, output, debug)
 
 
 if __name__ == '__main__':
