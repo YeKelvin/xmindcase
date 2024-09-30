@@ -16,10 +16,8 @@ from openpyxl.styles import Side
 from openpyxl.styles import numbers
 from rich import print
 
-from xmindcase.config import default_output_path
 
-
-def copy_excel(source, target_dir=default_output_path, target_name=None) -> str:
+def copy_excel(source, target_dir, target_name=None) -> str:
     """复制 Excel 文件"""
     # 判断是否为文件
     if not os.path.isfile(source):

@@ -29,8 +29,14 @@ dev-dependencies = [
 [tool.hatch.metadata]
 allow-direct-references = true
 
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/templates",
+]
+
 [tool.hatch.build.targets.wheel]
-packages = ["src/xmindcase"]
+packages = ["src/templates"]
 
 [[tool.rye.sources]]
 name = "default"

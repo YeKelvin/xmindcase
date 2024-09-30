@@ -13,6 +13,3 @@ template_excel_path = os.path.join(project_path, 'templates', 'testcase.template
 
 # xmind模板文件路径
 template_xmind_path = os.path.join(project_path, 'templates', 'testcase.example.xmind')
-
-# 默认输出路径
-default_output_path = os.path.join(project_path, 'outputs')
