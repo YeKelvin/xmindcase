@@ -8,7 +8,6 @@ import openpyxl
 
 from rich import print
 
-from xmindcase.config import template_excel_path
 from xmindcase.parser import node_to_case
 from xmindcase.parser import parse_xmind
 from xmindcase.parser import validate_nodes
@@ -68,7 +67,11 @@ def xmind_to_excel(xmind_file_path: str, xmind_sheet_name: str|None=None, excel_
     # 复制测试用例模板文件
     if not excel_output:
         excel_output = dir_path
-    output_path = copy_excel(template_excel_path, target_dir=excel_output, target_name=f'{xmind_name}.xlsx')
+    output_path = copy_excel(
+        source=os.path.abspath(os.path.join(os.path.dirname(__file__), './template.xlsx',)),
+        target_dir=excel_output,
+        target_name=f'{xmind_name}.xlsx'
+    )
     print('写入 excel 开始\n')
     # 打开 excel
     wb = openpyxl.load_workbook(output_path)

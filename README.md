@@ -26,15 +26,15 @@ pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple
 
 详情请参考
 
-- [Github](https://github.com/yekelvin/xmindcase/blob/master/templates/testcase.example.xmind)
-- [Gitee](https://gitee.com/kelvinye/xmindcase/blob/master/templates/testcase.template.xmind)
+- [Github](https://github.com/yekelvin/xmindcase/blob/master/docs/testcase.example.xmind)
+- [Gitee](https://gitee.com/kelvinye/xmindcase/blob/master/docs/testcase.template.xmind)
 
 ## 命令行使用说明
 
 ```bash
 xmindcase2excel '文件路径' [--sheet 'sheet名称'] [--output '输出路径'] [--debug] [--help]
 
-e.g.: xmindcase2excel '/xxx/testcase.xmind'
+e.g.: xmindcase2excel '/path/to/testcase.xmind'
 ```
 
 ## 代码内使用说明
