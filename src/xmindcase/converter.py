@@ -63,7 +63,7 @@ def xmind_to_excel(xmind_file_path: str, xmind_sheet_name: str|None=None, excel_
         if debug:
             [print(case) for case in cases]
     # XMindCase 解析完成
-    print(f'xmindcase 解析完成，共 {sum([len(suite['cases']) for suite in suites])} 条用例\n')
+    print(f'xmindcase 解析完成，共 {sum([len(suite["cases"]) for suite in suites])} 条用例\n')
     # 复制测试用例模板文件
     if not excel_output:
         excel_output = dir_path
